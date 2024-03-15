@@ -29,7 +29,7 @@ const AuthLayout = ({
           <div className="flex">
             <p className="flex-initial text-2xl font-medium">Welcome to </p>
             <a
-              href="/home"
+              href="/"
               className="flex-initial px-[3px] text-2xl font-medium text-orange-primary"
             >
               Test
