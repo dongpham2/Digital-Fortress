@@ -40,15 +40,15 @@ const Header = () => {
       </div>
       <div className="flex gap-4 items-center">
         <ThemeToggle />
+        <Image
+          src="https://www.svgrepo.com/show/348179/language.svg"
+          alt="world"
+          height={50}
+          width={50}
+          className="object-cover cursor-pointer"
+        />
         {accessToken ? (
           <div className="flex gap-4 items-center">
-            <Image
-              src="https://www.svgrepo.com/show/348179/language.svg"
-              alt="world"
-              height={50}
-              width={50}
-              className="object-cover cursor-pointer"
-            />
             <Button size="sm" onClick={handleSignOut}>
               Sign Out
             </Button>

@@ -78,16 +78,18 @@ export const columns: ColumnDef<Payment>[] = [
     header: "License Use",
     cell: ({ row }) => (
       <div>
-        {row?.getValue("license_use").map((license: License, index: number) => (
-          <div key={index} className="capitalize">
-            <p>
-              <strong>License Type:</strong> {license.license_type}
-            </p>
-            <p>
-              <strong>Libraries:</strong> {license.libraries.join(", ")}
-            </p>
-          </div>
-        ))}
+        {/* error type can't not go to production so i comment */}
+        {/* {row &&
+          row.getValue("license_use").map((license: License, index: number) => (
+            <div key={index} className="capitalize">
+              <p>
+                <strong>License Type:</strong> {license.license_type}
+              </p>
+              <p>
+                <strong>Libraries:</strong> {license.libraries.join(", ")}
+              </p>
+            </div>
+          ))} */}
       </div>
     ),
   },
