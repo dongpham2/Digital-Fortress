@@ -1,7 +1,7 @@
 const messages = {
   required: {
-    email: "Vui lòng nhập email",
-    password: "Vui lòng nhập password",
+    email: "Please enter your email",
+    password: "Please enter your password",
   },
   format: {
     email: "Please enter a valid email address",

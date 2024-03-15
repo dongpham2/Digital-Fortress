@@ -30,7 +30,7 @@ export default function SignIn() {
       const response = await http.post("/auth/login", data);
       const accessToken = response.data;
       localStorage.setItem("accessToken", accessToken?.access_token);
-      router.push("/home");
+      router.push("/");
     } catch (error) {
       console.error("Login failed", error);
     }
