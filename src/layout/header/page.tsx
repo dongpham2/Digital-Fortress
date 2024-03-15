@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import logo from "@/assets/logoD.png";
 import { useEffect, useState } from "react";
+import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
 const Header = () => {
   const [accessToken, setAccessToken] = useState<string | null>(null);
 
@@ -13,7 +14,7 @@ const Header = () => {
     }
   }, []);
   return (
-    <div className="flex items-center justify-between border-b-2 p-4">
+    <div className="flex items-center justify-between border-b-2 p-4 dark:bg-dark">
       <div className="flex items-center">
         <a href="/" className="mr-2 flex items-center">
           <Image
@@ -24,9 +25,12 @@ const Header = () => {
             className="object-cover"
           />
         </a>
-        <a href="/about">About</a>
+        <a href="/about" className="dark:text-white">
+          About
+        </a>
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-4 items-center">
+        <ThemeToggle />
         {accessToken ? (
           <Image
             src="https://www.svgrepo.com/show/348179/language.svg"
