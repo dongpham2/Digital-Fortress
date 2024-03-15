@@ -4,15 +4,24 @@ import Image from "next/image";
 import logo from "@/assets/logoD.png";
 import { useEffect, useState } from "react";
 import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
-const Header = () => {
-  const [accessToken, setAccessToken] = useState<string | null>(null);
+import { useRouter } from "next/navigation";
 
+const Header = () => {
+  const router = useRouter();
+  const [accessToken, setAccessToken] = useState<string | null>(null);
   useEffect(() => {
     if (typeof window !== "undefined") {
       const token = localStorage.getItem("accessToken");
       setAccessToken(token);
     }
   }, []);
+
+  const handleSignOut = () => {
+    localStorage.removeItem("accessToken");
+    setAccessToken(null);
+    router.push("/signin");
+  };
+
   return (
     <div className="flex items-center justify-between border-b-2 p-4 dark:bg-dark">
       <div className="flex items-center">
@@ -32,13 +41,18 @@ const Header = () => {
       <div className="flex gap-4 items-center">
         <ThemeToggle />
         {accessToken ? (
-          <Image
-            src="https://www.svgrepo.com/show/348179/language.svg"
-            alt="world"
-            height={50}
-            width={50}
-            className="object-cover cursor-pointer"
-          />
+          <div className="flex gap-4 items-center">
+            <Image
+              src="https://www.svgrepo.com/show/348179/language.svg"
+              alt="world"
+              height={50}
+              width={50}
+              className="object-cover cursor-pointer"
+            />
+            <Button size="sm" onClick={handleSignOut}>
+              Sign Out
+            </Button>
+          </div>
         ) : (
           <a href="/signin">
             <Button size="sm">Sign In</Button>

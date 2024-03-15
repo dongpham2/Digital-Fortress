@@ -5,9 +5,9 @@ import backgroundImg from "@/assets/signin-bg.jpg";
 interface AuthLayoutProps {
   children: ReactNode;
   label?: string;
-  funcTitle: string;
-  pageTitle: string;
-  toPage: string;
+  funcTitle?: string;
+  pageTitle?: string;
+  toPage?: string;
 }
 
 const AuthLayout = ({
@@ -24,7 +24,7 @@ const AuthLayout = ({
         alt="backgroundImg"
         className="absolute block h-screen w-full overflow-hidden bg-cover bg-no-repeat"
       />
-      <div className="absolute right-0 flex max-w-[539px] flex-col rounded-xl border border-black bg-white bg-opacity-[75%] p-10 sm:top-[5%] sm:mr-[5%]">
+      <div className="absolute right-0 flex max-w-[500px] w-full flex-col rounded-xl border border-black bg-white bg-opacity-[75%] p-10 sm:top-[5%] sm:mr-[5%]">
         <div className="flex justify-between">
           <div className="flex">
             <p className="flex-initial text-2xl font-medium">Welcome to </p>
@@ -32,7 +32,7 @@ const AuthLayout = ({
               href="/home"
               className="flex-initial px-[3px] text-2xl font-medium text-orange-primary"
             >
-              Homez
+              Test
             </a>
           </div>
           <div className="flex items-center gap-1">

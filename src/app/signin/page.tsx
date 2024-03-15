@@ -36,12 +36,7 @@ export default function SignIn() {
     }
   };
   return (
-    <AuthLayout
-      label="No Account?"
-      funcTitle="Sign Up"
-      pageTitle="Sign In"
-      toPage="/signin"
-    >
+    <AuthLayout funcTitle="Sign Up" pageTitle="Sign In" toPage="/signin">
       <Form {...form}>
         <form
           className="flex flex-col gap-5"
@@ -56,7 +51,7 @@ export default function SignIn() {
                 return (
                   <FormItem>
                     <FormControl>
-                      <Input placeholder="Nhập email ..." {...field} />
+                      <Input placeholder="Enter your email ..." {...field} />
                     </FormControl>
                     <FormDescription />
                     <FormMessage />
@@ -66,7 +61,7 @@ export default function SignIn() {
             />
           </div>
           <div className="flex flex-col gap-2">
-            <h3 className="text-base font-medium">Mật khẩu</h3>
+            <h3 className="text-base font-medium">Password</h3>
             <FormField
               name="password"
               control={form.control}
@@ -76,7 +71,7 @@ export default function SignIn() {
                     <FormControl>
                       <Input
                         type="password"
-                        placeholder="Nhập mật khẩu ..."
+                        placeholder="Enter your password ..."
                         {...field}
                       />
                     </FormControl>
@@ -88,11 +83,11 @@ export default function SignIn() {
             />
           </div>
           <p className="flex justify-end font-medium cursor-pointer">
-            Quên mật khẩu?
+            Forgot password?
           </p>
           <div className="flex justify-end mt-3">
             <Button type="submit" size="lg" className="w-56 text-white">
-              Đăng nhập
+              Sign In
             </Button>
           </div>
         </form>
