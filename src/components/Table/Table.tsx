@@ -37,7 +37,7 @@ import { License, Payment } from "@/types/table.type";
 export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "id",
-    header: "ID",
+    header: "id",
     cell: ({ row }) => <div className="capitalize">{row.getValue("id")}</div>,
     enableSorting: false,
     enableHiding: false,
@@ -78,9 +78,8 @@ export const columns: ColumnDef<Payment>[] = [
     header: "License Use",
     cell: ({ row }) => (
       <div>
-        {/* error type can't not go to production so i comment */}
-        {/* {row &&
-          row.getValue("license_use").map((license: License, index: number) => (
+        {(row.getValue("license_use") as License[]).map(
+          (license: License, index: number) => (
             <div key={index} className="capitalize">
               <p>
                 <strong>License Type:</strong> {license.license_type}
@@ -89,7 +88,8 @@ export const columns: ColumnDef<Payment>[] = [
                 <strong>Libraries:</strong> {license.libraries.join(", ")}
               </p>
             </div>
-          ))} */}
+          )
+        )}
       </div>
     ),
   },
@@ -110,14 +110,11 @@ export function DataTableDemo() {
           console.error("Access token not found in localStorage");
           return;
         }
-        const response = await http.get(
-          "https://frontend-exam.digitalfortress.dev/projects",
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
+        const response = await http.get("/projects", {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
         setTableData(response.data.results);
       } catch (error) {
         console.error("Failed to fetch data:", error);
@@ -150,12 +147,12 @@ export function DataTableDemo() {
     <div className="w-full">
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter Last Accessed..."
+          placeholder="Filter Project Name..."
           value={
-            (table.getColumn("last_accessed")?.getFilterValue() as string) ?? ""
+            (table.getColumn("project_name")?.getFilterValue() as string) ?? ""
           }
           onChange={(event) =>
-            table.getColumn("last_accessed")?.setFilterValue(event.target.value)
+            table.getColumn("project_name")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />

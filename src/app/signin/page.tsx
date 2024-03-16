@@ -43,7 +43,7 @@ export default function SignIn() {
           onSubmit={form.handleSubmit(onSubmit)}
         >
           <div className="flex flex-col gap-2">
-            <h3 className="text-base font-medium">Email</h3>
+            <h3 className="text-base font-semibold">Email</h3>
             <FormField
               name="email"
               control={form.control}
@@ -61,7 +61,7 @@ export default function SignIn() {
             />
           </div>
           <div className="flex flex-col gap-2">
-            <h3 className="text-base font-medium">Password</h3>
+            <h3 className="text-base font-semibold">Password</h3>
             <FormField
               name="password"
               control={form.control}
@@ -86,7 +86,11 @@ export default function SignIn() {
             Forgot password?
           </p>
           <div className="flex justify-end mt-3">
-            <Button type="submit" size="lg" className="w-56 text-white">
+            <Button
+              type="submit"
+              size="lg"
+              className="w-56 text-white bg-orange-primary"
+            >
               Sign In
             </Button>
           </div>

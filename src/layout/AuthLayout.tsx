@@ -46,7 +46,7 @@ const AuthLayout = ({
           </div>
         </div>
         <div>
-          <h4 className="mt-3 text-4xl font-medium sm:text-5xl">{pageTitle}</h4>
+          <h4 className="my-4 text-4xl font-medium sm:text-5xl">{pageTitle}</h4>
         </div>
         <div>{children}</div>
       </div>
